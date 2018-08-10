@@ -1,0 +1,23 @@
+{
+  "name": "spck-module",
+  "version": "0.1.0",
+  "homepage": "https://github.com/spckio/spck-module",
+  "main": [
+    "./dist/spck-module.js"
+  ],
+  "dependencies": {},
+  "ignore": [
+    "coverage",
+    "node_modules",
+    "bower_components",
+    "src",
+    "tests",
+    "gulpfile.js",
+    "karma.conf.js",
+    "package.json",
+    "bower.json",
+    ".gitignore",
+    ".editorconfig",
+    ".travis.yml"
+  ]
+}

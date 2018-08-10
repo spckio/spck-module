@@ -1,0 +1,9 @@
+.idea
+.vscode
+
+node_modules
+bower_components
+coverage
+
+package-lock.json
+.DS_Store
