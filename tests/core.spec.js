@@ -50,7 +50,7 @@ describe('core', function () {
 
     self.initialize('chicken')
       .catch(function (e) {
-        expect(e.message).toBe('Circular dependency "egg" found for module "chicken".');
+        expect(e.message).toBe('Circular dependency "chicken" found for module "egg".');
         done();
       });
   });
@@ -68,7 +68,7 @@ describe('core', function () {
 
     self.initialize('dad')
       .catch(function (e) {
-        expect(e.message).toBe('Circular dependency "baby" found for module "dad".');
+        expect(e.message).toBe('Circular dependency "mom" found for module "baby".');
         done();
       });
   });

@@ -113,10 +113,10 @@ window.m = (function (exports) {
 
         module._initialize = function () {
           return new Promise(function (resolve, reject) {
-            var circularDependency = checkCircularDependencies(module, [module.__name__]);
-            if (circularDependency) {
+            var circularDependencyData = checkCircularDependencies(module, [module.__name__]);
+            if (circularDependencyData) {
               reject({
-                message: 'Circular dependency "' + circularDependency.__name__ + '" found for module "' + module.__name__ + '".'
+                message: 'Circular dependency "' + circularDependencyData[1] + '" found for module "' +  circularDependencyData[0].__name__ + '".'
               });
             }
 
@@ -167,10 +167,9 @@ window.m = (function (exports) {
         if (accumulated) {
           return accumulated;
         } else if (seenModules.indexOf(moduleName) !== -1) {
-          return module;
+          return [module, moduleName];
         } else {
-          seenModules.push(module.__name__);
-          return checkCircularDependencies(exports.modules[moduleName], seenModules);
+          return checkCircularDependencies(exports.modules[moduleName], seenModules.concat([module.__name__]));
         }
       }, null);
     }
