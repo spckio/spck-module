@@ -91,8 +91,10 @@ window.m = (function (exports) {
           return module;
         };
 
-        module.require = function (name) {
-          module._modules.push(name);
+        module.require = function () {
+          Array.from(arguments).forEach(function (name) {
+            module._modules.push(name);
+          })
           return module;
         };
 
